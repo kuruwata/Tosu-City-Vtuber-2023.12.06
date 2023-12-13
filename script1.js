@@ -3,7 +3,6 @@ const open = document.querySelector('#btn-open');
 const close = document.querySelector('#btn-close');
 const menu = document.querySelector('#menu');
 const items = document.querySelectorAll('.item');
-const map = L.map('map').setView([33.66719252628797, 130.44390437674102], 15);
 
 const options = {
   duration: 600,
@@ -44,14 +43,6 @@ const menuClose = () => {
       fill: 'forwards',
     });
   });
-
-  // メニューが閉じた後に地図を表示
-  setTimeout(() => {
-    // タイルレイヤーを作成し、地図にセットする
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-  }, options.duration);
 };
 
 close.addEventListener('click', menuClose);
